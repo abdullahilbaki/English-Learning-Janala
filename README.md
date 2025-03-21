@@ -1,5 +1,5 @@
 # <img width="30px" src="./assets/logo.svg" /> ENGLISH JANALA
 
-## Live Site:  
+## Live Site:
 
-🔹 **Surge:** [english-learning-janala.surge.sh](https://english-learning-janala.surge.sh/)  
+🔹 **Surge:** [english-learning-janala.surge.sh](https://english-learning-janala.surge.sh/)
