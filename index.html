@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <!-- Title -->
+    <link rel="shortcut icon" href="./assets/logo.svg" type="image/x-icon" />
+    <title>ENGLISH JANALA</title>
+
+    <!-- Use daisyUI from CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Add custom css -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- font awesome  -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- poppins font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tiro Bangla font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Hind Siliguri font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Inter font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+
+  <body class="bg-white poppins">
+    <!-- Navbar section -->
+    <div
+      id="nav-bar"
+      class="hidden fixed top-0 left-0 w-full z-50 border-b-2 border-gray-300"
+      style="
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.2),
+            rgba(0, 0, 0, 0) 20%
+          ),
+          linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0) 5%),
+          linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0) 5%);
+        backdrop-filter: blur(40px);
+      "
+    >
+      <nav
+        class="container mx-auto py-4 px-4 flex flex-col sm:flex-row items-center justify-between gap-4"
+      >
+        <!-- left logo and header section -->
+        <a href="/">
+          <h1 class="flex items-center gap-1 cursor-pointer">
+            <span class="font-semibold">English</span>
+            <img class="object-contain" src="./assets/logo.svg" alt="log" />
+            <span class="font-medium tiro-bangla">জানালা</span>
+          </h1>
+        </a>
+
+        <!-- right buttons: faq, learn, and logout -->
+        <div class="flex gap-2">
+          <a href="#faq-section">
+            <button class="btn btn-outline btn-primary btn-sm sm:btn-md">
+              <i class="fa-solid fa-circle-question"></i>
+              FAQ
+            </button>
+          </a>
+
+          <a href="#lets-learn">
+            <button class="btn btn-outline btn-primary btn-sm sm:btn-md">
+              <i class="fa-solid fa-book-open"></i>
+              Learn
+            </button>
+          </a>
+
+          <button
+            id="user-logout"
+            class="btn btn-outline btn-primary btn-sm sm:btn-md"
+          >
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            Logout
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Banner section -->
+    <div
+      id="banner"
+      class="pt-30 sm:pt-20 mt-6 container mx-auto py-4 px-4 flex flex-col md:flex-row items-center justify-between"
+    >
+      <!-- left text section -->
+      <div class="w-full md:w-1/2 text-center md:text-left">
+        <h1 class="font-bold text-2xl sm:font-extrabold sm:text-4xl">
+          <span class="text-blue-400">English</span> is Easy!!
+        </h1>
+        <p class="my-4 font-medium text-base sm:text-lg hind-siliguri">
+          আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
+          আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে
+          অন্য একটি Level এ
+        </p>
+
+        <form id="user-login">
+          <input
+            id="user-name"
+            type="text"
+            placeholder="Enter Your Name"
+            class="p-2 rounded-md border-gray-300 outline-none w-2/3 sm:w-auto text-base"
+          />
+
+          <br />
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter Login Code (123456)"
+            class="p-2 rounded-md border-gray-300 outline-none my-4 w-2/3 sm:w-auto text-base"
+          />
+          <br />
+          <button class="btn btn-primary btn-sm sm:btn-md">Get Started</button>
+        </form>
+      </div>
+
+      <!-- right image section -->
+      <div class="w-full md:w-1/2 flex justify-center">
+        <img
+          class="object-cover w-10/12"
+          src="./assets/hero-student.png"
+          alt="student"
+        />
+      </div>
+    </div>
+
+    <!-- Let's Learn Vocabularies section -->
+    <div class="hidden" id="lets-learn">
+      <div
+        class="pt-30 sm:pt-20 mt-6 container mx-auto py-4 px-4 flex flex-col gap-8 items-center"
+      >
+        <!-- Let's Learn Vocabularies title -->
+        <h1 class="font-bold text-xl sm:font-extrabold sm:text-3xl text-center">
+          <span class="text-blue-400">Let's</span> Learn Vocabularies
+        </h1>
+
+        <!-- dynamically generated buttons from API-01 -->
+        <div
+          id="lesson-btns-div"
+          class="flex flex-wrap gap-4 justify-center items-center"
+        ></div>
+
+        <!-- Lesson Select -->
+        <div
+          id="lesson-select"
+          class="p-4 bg-gray-100 w-full grid gap-4 rounded-3xl"
+        >
+          <p
+            class="mt-10 text-gray-500 text-sm sm:text-base hind-siliguri text-center"
+          >
+            আপনি এখনো কোন Lesson Select করেন নি
+          </p>
+          <h2
+            class="mb-10 text-xl sm:text-2xl md:text-3xl font-medium hind-siliguri text-center"
+          >
+            একটি Lesson Select করুন।
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Frequently Asked Questions section -->
+    <div class="hidden" id="faq-section">
+      <div
+        class="pt-30 sm:pt-20 mt-6 container mx-auto py-4 px-4 flex flex-col gap-8 items-center"
+      >
+        <!-- Frequently Asked Questions title -->
+        <h1 class="font-bold text-xl sm:font-extrabold sm:text-3xl text-center">
+          <span class="text-blue-400">Frequently</span> Asked Questions
+        </h1>
+
+        <!-- Frequently Asked Questions accordion -->
+        <div class="flex flex-col justify-between gap-4 w-full">
+          <!-- faq-1 -->
+          <div class="collapse collapse-plus bg-base-200 rounded-2xl p-1">
+            <input type="radio" name="my-accordion-3" checked="checked" />
+
+            <!-- Question-1 -->
+            <div class="collapse-title text-lg sm:text-xl font-medium">
+              1. What is the difference between
+              <code
+                class="break-all text-lg sm:text-xl font-medium bg-gray-200 p-1 rounded"
+                >var</code
+              >,
+              <code
+                class="break-all text-lg sm:text-xl font-medium bg-gray-200 p-1 rounded"
+                >let</code
+              >, and
+              <code
+                class="break-all text-lg sm:text-xl font-medium bg-gray-200 p-1 rounded"
+                >const</code
+              >?
+            </div>
+
+            <!-- Answer-1 -->
+            <div class="collapse-content">
+              <p class="poppins text-gray-500 text-sm sm:text-base">
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >var</code
+                >
+                is the old way of declaring variables. It’s function-scoped and
+                can be re-declared. It also gets hoisted, which can cause weird
+                bugs. <br /><br />
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >let</code
+                >
+                is block-scoped (only exists within
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >{}</code
+                >). It can be updated but not re-declared in the same scope.
+                Safer than
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >var</code
+                >. <br /><br />
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >const</code
+                >
+                is also block-scoped, but can’t be reassigned after it's set.
+                Useful for values that shouldn’t change.
+              </p>
+            </div>
+          </div>
+
+          <!-- faq-2 -->
+          <div class="collapse collapse-plus bg-base-200 rounded-2xl p-1">
+            <input type="radio" name="my-accordion-3" />
+
+            <!-- Question-2 -->
+            <div class="collapse-title text-lg sm:text-xl font-medium">
+              2. What is the difference between
+              <code
+                class="break-all text-lg sm:text-xl font-medium bg-gray-200 p-1 rounded"
+                >map()</code
+              >,
+              <code
+                class="break-all text-lg sm:text-xl font-medium bg-gray-200 p-1 rounded"
+                >forEach()</code
+              >
+              , and
+              <code
+                class="break-all text-lg sm:text-xl font-medium bg-gray-200 p-1 rounded"
+                >filter()</code
+              >?
+            </div>
+
+            <!-- Answer-2 -->
+            <div class="collapse-content">
+              <p class="poppins text-gray-500 text-sm sm:text-base">
+                All three are used to loop through arrays, but they work
+                differently: <br /><br />
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >map()</code
+                >
+                Creates a new array by applying a function to each element.
+                Great for transformations. <br /><br />
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >forEach()</code
+                >
+                Just loops through the array and runs a function on each item.
+                Doesn’t return anything. <br /><br />
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >filter()</code
+                >
+                Creates a new array with only the elements that match a
+                condition. <br /><br />
+              </p>
+            </div>
+          </div>
+
+          <!-- faq-3 -->
+          <div class="collapse collapse-plus bg-base-200 rounded-2xl p-1">
+            <input type="radio" name="my-accordion-3" />
+
+            <!-- Question-3 -->
+            <div class="collapse-title text-lg sm:text-xl font-medium">
+              3. Explain arrow functions and how they are different from regular
+              functions?
+            </div>
+
+            <!-- Answer-3 -->
+            <div class="collapse-content">
+              <p class="poppins text-gray-500 text-sm sm:text-base">
+                Arrow functions are a more concise way to write functions in
+                JavaScript. They use the
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                >
+                  =></code
+                >
+
+                syntax, making them shorter and easier to read. Unlike regular
+                functions, arrow functions do not have their own
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >this</code
+                >
+
+                ; instead, they inherit
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >this</code
+                >
+
+                from their surrounding scope. This makes them especially useful
+                in situations where we want to avoid the confusion of
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >this</code
+                >
+
+                changing inside callbacks or event handlers. <br /><br />
+
+                Another key difference is that arrow functions do not have their
+                own
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >arguments</code
+                >
+
+                object. In regular functions,
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >arguments</code
+                >
+
+                contains all the parameters passed to the function, even if they
+                are not explicitly declared. However, arrow functions do not
+                have this feature, so if we need a similar functionality, we
+                must use rest parameters instead. <br /><br />
+
+                Arrow functions also cannot be used as constructor functions. In
+                JavaScript, regular functions can be used with the
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >new</code
+                >
+
+                keyword to create object instances, but arrow functions do not
+                have this capability. If we try to use
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >new</code
+                >
+
+                with an arrow function, it will result in an error.
+                <br /><br />
+
+                Overall, arrow functions are best used when we need a shorter
+                syntax and do not require
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >this</code
+                >,
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >arguments</code
+                >, or constructor functionality. They work well for simple
+                functions, especially in callbacks, array methods like
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >map()</code
+                >
+
+                and
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >filter()</code
+                >
+
+                , and when we want to maintain the context of
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >this</code
+                >, in a function. Regular functions, on the other hand, are more
+                suitable when we need access to
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >this</code
+                >,
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >arguments</code
+                >, or need to create objects using
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >new</code
+                >.
+              </p>
+            </div>
+          </div>
+
+          <!-- faq-4 -->
+          <div class="collapse collapse-plus bg-base-200 rounded-2xl p-1">
+            <input type="radio" name="my-accordion-3" />
+
+            <!-- Question-4 -->
+            <div class="collapse-title text-lg sm:text-xl font-medium">
+              4. how JavaScript Promises work?
+            </div>
+
+            <!-- Answer-4 -->
+            <div class="collapse-content">
+              <p class="poppins text-gray-500 text-sm sm:text-base">
+                JavaScript Promises handle asynchronous operations, like
+                fetching data or reading files, without blocking the main
+                thread. A Promise represents a value that might be available
+                now, later, or never. <br /><br />
+
+                A Promise has three states: <strong>pending</strong> (waiting),
+                <strong>fulfilled</strong> (successful), or
+                <strong>rejected</strong>
+                (failed). When a Promise is fulfilled, it runs the
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >.then()</code
+                >
+
+                method. If it fails, the
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >.catch()</code
+                >
+
+                method handles errors. The
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >.finally()</code
+                >
+
+                method runs regardless of success or failure. <br /><br />
+
+                Promises help avoid callback hell, making async code cleaner and
+                easier to manage. They are commonly used in APIs, databases, and
+                async functions like
+
+                <code
+                  class="break-all text-sm sm:text-base bg-gray-200 p-1 rounded"
+                  >fetch()</code
+                >
+                .
+              </p>
+            </div>
+          </div>
+
+          <!-- faq-5 -->
+          <div class="collapse collapse-plus bg-base-200 rounded-2xl p-1">
+            <input type="radio" name="my-accordion-3" />
+
+            <!-- Question-5 -->
+            <div class="collapse-title text-lg sm:text-xl font-medium">
+              5. How closures work in JavaScript?
+            </div>
+
+            <!-- Answer-5 -->
+            <div class="collapse-content">
+              <p class="poppins text-gray-500 text-sm sm:text-base">
+                Closures in JavaScript happen when a function remembers and
+                keeps access to variables from its outer scope, even after the
+                outer function has finished running. <br /><br />
+
+                This works because JavaScript functions create their own scope,
+                and inner functions can "close over" variables from their parent
+                function. This allows data to stay private and be reused later.
+                <br /><br />
+
+                Closures are useful for data hiding, creating private variables,
+                and making functions more flexible. They are commonly used in
+                event handlers, timers, and function factories.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Top border -->
+    <div class="mt-40 border-t-2 border-red-100">
+      <!-- Footer section -->
+      <footer
+        class="container mx-auto py-20 px-4 flex flex-col sm:flex-row gap-10 justify-between"
+      >
+        <!-- left section -->
+        <div>
+          <!-- left logo and header section -->
+          <a href="/">
+            <h1 class="flex items-center gap-1 cursor-pointer">
+              <span class="font-semibold">English</span>
+              <img class="object-contain" src="./assets/logo.svg" alt="log" />
+              <span class="font-medium tiro-bangla">জানালা</span>
+            </h1>
+          </a>
+
+          <h3 class="hind-siliguri mt-4">ইংরেজি শিখুন সহজে</h3>
+          <p class="text-sm font-light mt-2">
+            Providing ED-Tech Applications since 2025
+          </p>
+        </div>
+
+        <!-- right section -->
+        <div class="flex flex-col justify-end gap-4">
+          <p class="text-sm font-light">Follow us</p>
+
+          <!-- social icons -->
+          <div class="flex gap-3">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.facebook.com/"
+              ><i class="fa-brands fa-facebook text-xl"></i
+            ></a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.youtube.com/"
+              ><i class="fa-brands fa-youtube text-xl"></i
+            ></a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.instagram.com/"
+              ><i class="fa-brands fa-instagram text-xl"></i
+            ></a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/abdullahilbaki"
+              ><i class="fa-brands fa-github text-xl"></i
+            ></a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- JavaScript files -->
+    <script src="./scripts/getLessonBtns.js"></script>
+    <script src="./scripts/showWords.js"></script>
+    <script src="./scripts/showModalDetails.js"></script>
+    <script src="./scripts/authHandler.js"></script>
+  </body>
+</html>
