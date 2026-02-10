@@ -3,7 +3,7 @@ const lessonBtnsDiv = document.getElementById("lesson-btns-div");
 async function getLessonBtns() {
   try {
     let response = await fetch(
-      "https://openapi.programming-hero.com/api/levels/all"
+      "https://openapi.programming-hero.com/api/levels/all",
     );
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -17,16 +17,16 @@ async function getLessonBtns() {
         (lesson) => `
                 <button class="lesson-number btn btn-outline btn-primary btn-sm sm:btn-md" 
                 data-level-no="${lesson.level_no}">
-                    <i class="fa-solid fa-book-open"></i>
-                    Lesson-${lesson.level_no}
-                </button>`
+                  <i class="fa-solid fa-book-open"></i>
+                  Lesson-${lesson.level_no}
+                </button>`,
       )
       .join("");
   } catch (error) {
     console.error("Error:", error);
     return `<p class="text-red-600 font-medium text-xl">
-        <i class="fa-solid fa-triangle-exclamation"></i> 
-        Error loading lessons</p>`;
+              <i class="fa-solid fa-triangle-exclamation"></i> 
+            Error loading lessons</p>`;
   }
 }
 

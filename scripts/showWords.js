@@ -6,7 +6,7 @@ async function showWords(lessonNumber) {
     lessonSelect.className = "";
 
     let response = await fetch(
-      `https://openapi.programming-hero.com/api/level/${lessonNumber}`
+      `https://openapi.programming-hero.com/api/level/${lessonNumber}`,
     );
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -37,8 +37,8 @@ async function showWords(lessonNumber) {
                     <p class="text-sm font-medium">Meaning / Pronunciation</p>
                     <p class="font-semibold text-xl  text-gray-600 hind-siliguri">
                         "${lesson.meaning ? lesson.meaning : "অর্থ নেই"} / ${
-          lesson.pronunciation
-        }"
+                          lesson.pronunciation
+                        }"
                     </p>
                     <div class="flex justify-between mt-4">
                         <button class="btn btn-square bg-blue-100" data-id="${
