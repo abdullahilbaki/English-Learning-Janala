@@ -33,26 +33,26 @@ async function showWords(lessonNumber) {
           "p-4 bg-gray-100 w-full grid gap-4 rounded-3xl grid-cols-1 sm:grid-cols-2 md:grid-cols-3 inter text-center";
         lessonSelect.innerHTML += `
                 <div class="bg-white rounded-md grid gap-4 p-8">
-                    <h3 class="font-semibold text-xl">${lesson.word}</h3>
-                    <p class="text-sm font-medium">Meaning / Pronunciation</p>
-                    <p class="font-semibold text-xl  text-gray-600 hind-siliguri">
-                        "${lesson.meaning ? lesson.meaning : "অর্থ নেই"} / ${
-                          lesson.pronunciation
-                        }"
-                    </p>
-                    <div class="flex justify-between mt-4">
-                        <button class="btn btn-square bg-blue-100" data-id="${
-                          lesson.id
-                        }">
-                            <i class="fa-solid fa-circle-info"></i>
-                        </button>
+                  <h3 class="font-semibold text-xl">${lesson.word}</h3>
+                  <p class="text-sm font-medium">Meaning / Pronunciation</p>
+                  <p class="font-semibold text-xl  text-gray-600 hind-siliguri">
+                    "${lesson.meaning ? lesson.meaning : "অর্থ নেই"} / ${
+                      lesson.pronunciation
+                    }"
+                  </p>
+                  <div class="flex justify-between mt-4">
+                    <button class="btn btn-square bg-blue-100" data-id="${
+                      lesson.id
+                    }">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </button>
 
-                        <button class="btn btn-square bg-blue-100" onclick="pronounceWord('${
-                          lesson.word
-                        }')">
-                            <i class="fa-solid fa-volume-high"></i>
-                        </button>
-                    </div>
+                    <button class="btn btn-square bg-blue-100" onclick="pronounceWord('${
+                      lesson.word
+                    }')">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                  </div>
                 </div>
             `;
       });
@@ -66,7 +66,19 @@ async function showWords(lessonNumber) {
 }
 
 function pronounceWord(word) {
-  const utterance = new SpeechSynthesisUtterance(word);
-  utterance.lang = "en-EN";
-  window.speechSynthesis.speak(utterance);
+  const synth = window.speechSynthesis;
+
+  const speak = () => {
+    const utterance = new SpeechSynthesisUtterance(word);
+    const voices = synth.getVoices();
+
+    utterance.voice = voices.find((v) => v.lang.includes("en")) || voices[0];
+    synth.speak(utterance);
+  };
+
+  if (synth.getVoices().length !== 0) {
+    speak();
+  } else {
+    synth.onvoiceschanged = speak;
+  }
 }
